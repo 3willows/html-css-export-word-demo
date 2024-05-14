@@ -1,4 +1,4 @@
-import {htmlCssExportWord} from "html-css-export-word"
+import { htmlCssExportWord } from "html-css-export-word"
 
 const htmlInput = document.getElementById("htmlInput")
 const cssInput = document.getElementById("cssInput")
@@ -18,14 +18,17 @@ function updateResult() {
 htmlInput.addEventListener("input", updateResult)
 cssInput.addEventListener("input", updateResult)
 
-button.addEventListener("click", ()=>{
-  console.log("hihi")
+button.addEventListener("click", () => {
+  if (isMobile) {
+    alert("The download to Word function is designed for desktop use only.")
+    return
+  }
   htmlCssExportWord(htmlInput.value, cssInput.value, input.value)
 })
 window.onload = updateResult()
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
 if (isMobile) {
-  alert('The download to Word function is designed for desktop use only.');
+  alert("The download to Word function is designed for desktop use only.")
 }
