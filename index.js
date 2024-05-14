@@ -23,3 +23,9 @@ button.addEventListener("click", ()=>{
   htmlCssExportWord(htmlInput.value, cssInput.value, input.value)
 })
 window.onload = updateResult()
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+  alert('The download to Word function is designed for desktop use only.');
+}
